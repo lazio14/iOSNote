@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C5EA190A-6FEE-49A1-8AD8-57B8CA33CF98</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Deck</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C5D96283-0F27-4806-B7DF-6B3743BC4D80</key>
+		<string>https://github.com/lazio14/iOSNote</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Deck/Deck.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C5D96283-0F27-4806-B7DF-6B3743BC4D80</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/lazio14/iOSNote</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C5D96283-0F27-4806-B7DF-6B3743BC4D80</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C5D96283-0F27-4806-B7DF-6B3743BC4D80</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOSNote</string>
+		</dict>
+	</array>
+</dict>
+</plist>
