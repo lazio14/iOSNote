@@ -54,14 +54,18 @@
     {
         [sender setBackgroundImage:[UIImage imageNamed:@"9"] forState:UIControlStateNormal];
         [sender setTitle:@"" forState:UIControlStateNormal];
+        self.flipCnt++;
     }
     else
     {
         Card* card = [self.deck drawRandomCard];
-        [sender setTitle:card.contents forState:UIControlStateNormal];
-        [sender setBackgroundImage:[UIImage imageNamed:@"4"] forState:UIControlStateNormal];
+        if (card)
+        {
+            [sender setTitle:card.contents forState:UIControlStateNormal];
+            [sender setBackgroundImage:[UIImage imageNamed:@"4"] forState:UIControlStateNormal];
+        }
+        self.flipCnt++;
     }
-    self.flipCnt++;
 }
 
 
