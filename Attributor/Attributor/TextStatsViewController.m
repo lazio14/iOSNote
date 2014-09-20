@@ -9,6 +9,8 @@
 #import "TextStatsViewController.h"
 
 @interface TextStatsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *colorCntLabel;
+@property (weak, nonatomic) IBOutlet UILabel *outlinedCntLabel;
 
 @end
 
@@ -24,20 +26,47 @@
     }
 }
 
-- (void) viewWillDisappear:(BOOL)animated
+//- (void) viewDidLoad
+//{
+//    [super viewDidLoad];
+//// just for test
+//    self.textToAnalyze = [[NSAttributedString alloc] initWithString:@"test" attributes:@{NSForegroundColorAttributeName:[UIColor greenColor],NSStrokeWidthAttributeName:@-3}];
+//    [self updateUI];
+//}
+
+- (void) viewWillAppear:(BOOL)animated
 {
-    [super viewWillDisappear:animated];
+    [super viewWillAppear:animated];
     [self updateUI];
 }
 
 - (NSAttributedString *)charactersWithAttribute:(NSString *)attributeName
 {
-    return nil;
+    NSMutableAttributedString *character = [[NSMutableAttributedString alloc] init];
+    int index = 0;
+    while (index < [self.textToAnalyze length])
+    {
+        NSRange range;
+        
+        id value = [self.textToAnalyze attribute:attributeName atIndex:index effectiveRange:&range];
+        if (value)
+        {
+            [character appendAttributedString:[self.textToAnalyze attributedSubstringFromRange:range]];
+            index += range.location + range.length;
+        }
+        else
+        {
+            index++;
+        }
+    }
+    return character;
 }
 
 - (void) updateUI
 {
-    
+    self.colorCntLabel.text = [NSString stringWithFormat:@"%d colorful characters",     [[self charactersWithAttribute:NSForegroundColorAttributeName] length]];
+
+    self.outlinedCntLabel.text = [NSString stringWithFormat:@"%d outlined characters",     [[self charactersWithAttribute:NSStrokeWidthAttributeName] length]];
 }
 
 
