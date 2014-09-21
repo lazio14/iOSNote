@@ -21,6 +21,7 @@
 		3A10239F19CED5FF001960B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A10238119CED5FF001960B7 /* UIKit.framework */; };
 		3A1023A719CED5FF001960B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A1023A519CED5FF001960B7 /* InfoPlist.strings */; };
 		3A1023A919CED5FF001960B7 /* DropitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1023A819CED5FF001960B7 /* DropitTests.m */; };
+		3A1023B419CEFD84001960B7 /* DropitBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1023B319CEFD84001960B7 /* DropitBehavior.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		3A1023A419CED5FF001960B7 /* DropitTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DropitTests-Info.plist"; sourceTree = "<group>"; };
 		3A1023A619CED5FF001960B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3A1023A819CED5FF001960B7 /* DropitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DropitTests.m; sourceTree = "<group>"; };
+		3A1023B219CEFD84001960B7 /* DropitBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropitBehavior.h; sourceTree = "<group>"; };
+		3A1023B319CEFD84001960B7 /* DropitBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropitBehavior.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				3A10239219CED5FF001960B7 /* DropitViewController.h */,
 				3A10239319CED5FF001960B7 /* DropitViewController.m */,
 				3A10238F19CED5FF001960B7 /* Main.storyboard */,
+				3A1023B219CEFD84001960B7 /* DropitBehavior.h */,
+				3A1023B319CEFD84001960B7 /* DropitBehavior.m */,
 				3A10239519CED5FF001960B7 /* Images.xcassets */,
 				3A10238419CED5FF001960B7 /* Supporting Files */,
 			);
@@ -251,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A10239419CED5FF001960B7 /* DropitViewController.m in Sources */,
+				3A1023B419CEFD84001960B7 /* DropitBehavior.m in Sources */,
 				3A10238E19CED5FF001960B7 /* DropitAppDelegate.m in Sources */,
 				3A10238A19CED5FF001960B7 /* main.m in Sources */,
 			);
