@@ -462,6 +462,7 @@
 				3A979BA719CDD83300AC45A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A979BA819CDD83300AC45A1 /* Build configuration list for PBXNativeTarget "SuperCardTests" */ = {
 			isa = XCConfigurationList;
@@ -470,6 +471,7 @@
 				3A979BAA19CDD83300AC45A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
