@@ -9,7 +9,7 @@
 #import "DropitViewController.h"
 #import "DropitBehavior.h"
 
-@interface DropitViewController ()
+@interface DropitViewController () <UIDynamicAnimatorDelegate>
 @property (weak, nonatomic) IBOutlet UIView *gameView;
 @property (strong, nonatomic) UIDynamicAnimator *animator;
 @property (strong, nonatomic) UIGravityBehavior *gravity;
@@ -26,8 +26,68 @@ static const CGSize DROP_SIZE = {40, 40};
     if (!_animator)
     {
         _animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.gameView];
+        _animator.delegate = self;
     }
     return _animator;
+}
+
+- (void)dynamicAnimatorDidPause:(UIDynamicAnimator *)animator
+{
+    [self removeCompleteRow];
+}
+
+- (BOOL) removeCompleteRow
+{
+    NSMutableArray *dropsToRemove = [[NSMutableArray alloc] init];
+    for (CGFloat y = self.gameView.bounds.size.height - DROP_SIZE.height / 2; y > 0; y -= DROP_SIZE.height) {
+        BOOL rowIsComplete = YES;
+        NSMutableArray *dropsFound = [[NSMutableArray alloc] init];
+        for (CGFloat x = DROP_SIZE.width / 2; x < self.gameView.bounds.size.width; x += DROP_SIZE.width) {
+            UIView *hitView = [self.gameView hitTest:CGPointMake(x, y) withEvent:NULL];
+            if ([hitView superview] == self.gameView)
+            {
+                [dropsFound addObject:hitView];
+            }
+            else
+            {
+                rowIsComplete = NO;
+            }
+        }
+        
+        if (![dropsFound count]) // 这一行时空的，再往上肯定找不到填满一行的情况。
+        {
+            break;
+        }
+        
+        if (rowIsComplete)
+        {
+            [dropsToRemove addObjectsFromArray:dropsFound];
+        }
+    }
+    
+    if ([dropsToRemove count])
+    {
+        for (UIView *drop in dropsToRemove) {
+            [self.dropBehavior removeItem:drop];
+        }
+        [self animateRemovingDrops:dropsToRemove];
+    }
+    return NO;
+}
+
+- (void) animateRemovingDrops:(NSArray *)dropsToRemove
+{
+    [UIView animateWithDuration:1.0
+                     animations:^{
+                         for (UIView *drop in dropsToRemove) {
+                             int x = (arc4random() % (int)(self.gameView.bounds.size.width * 5)) - (int)self.gameView.bounds.size.width * 2;
+                             int y = self.gameView.bounds.size.height;
+                             drop.center = CGPointMake(x, -y);
+                         }
+                     }
+                     completion:^(BOOL finished){
+                         [dropsToRemove makeObjectsPerformSelector:@selector(removeFromSuperview)];
+                     }];
 }
 
 - (UIGravityBehavior*) gravity
