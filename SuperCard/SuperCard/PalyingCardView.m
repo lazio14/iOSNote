@@ -64,6 +64,30 @@
     
     [[UIColor blueColor] setStroke];
     [roundedRect stroke];
+    
+    [self drawCorners];
+}
+
+- (NSString *) rankAsString
+{
+    return @[@"?", @"A", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10", @"J",@"Q", @"K"][self.rank];
+}
+
+- (void)drawCorners
+{
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    
+    UIFont *cornerFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    cornerFont = [cornerFont fontWithSize:cornerFont.pointSize * [self cornerScaleFactor]];
+    
+    NSAttributedString *cornerText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@\n%@", [self rankAsString], self.suit] attributes:@{NSFontAttributeName:cornerFont, NSParagraphStyleAttributeName:paragraphStyle}];
+    
+    CGRect textBounds;
+    textBounds.origin = CGPointMake([self cornerOffset], [self cornerOffset]);
+    textBounds.size = [cornerText size];
+    [cornerText drawInRect:textBounds];
+                                    
 }
 
 

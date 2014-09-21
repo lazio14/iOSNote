@@ -7,8 +7,10 @@
 //
 
 #import "ViewController.h"
+#import "PalyingCardView.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet PalyingCardView *playingCardView;
 
 @end
 
@@ -18,5 +20,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.playingCardView.rank = 13;
+    self.playingCardView.suit = @"♣️";
 }
 @end
