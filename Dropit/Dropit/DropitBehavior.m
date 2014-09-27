@@ -14,12 +14,14 @@
 {
     [self.gravity addItem:item];
     [self.collider addItem:item];
+    [self.animationOptions addItem:item];
 }
 
 - (void) removeItem:(id<UIDynamicItem>)item
 {
     [self.gravity removeItem:item];
     [self.collider removeItem:item];
+    [self.animationOptions removeItem:item];
 }
 
 
@@ -43,12 +45,23 @@
     return _collider;
 }
 
+- (UIDynamicItemBehavior*)animationOptions
+{
+    if (!_animationOptions)
+    {
+        _animationOptions = [[UIDynamicItemBehavior alloc] init];
+        _animationOptions.allowsRotation = NO;
+    }
+    return _animationOptions;
+}
+
 
 - (instancetype) init
 {
     self = [super init];
     [self addChildBehavior:self.gravity];
     [self addChildBehavior:self.collider];
+    [self addChildBehavior:self.animationOptions];
     return self;
 }
 
