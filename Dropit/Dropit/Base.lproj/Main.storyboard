@@ -38,6 +38,11 @@
                         <action selector="tap:" destination="vXZ-lx-hvc" id="EO0-Xx-7Gc"/>
                     </connections>
                 </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="USG-4s-JIX">
+                    <connections>
+                        <action selector="pan:" destination="vXZ-lx-hvc" id="jk8-HQ-IE4"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
         </scene>
     </scenes>

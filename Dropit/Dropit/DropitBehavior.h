@@ -12,7 +12,6 @@
 - (instancetype) init;
 @property (strong, nonatomic) UIGravityBehavior *gravity;
 @property (strong, nonatomic) UICollisionBehavior *collider;
-@property (strong, nonatomic) UIAttachmentBehavior *attach;
 @property (strong, nonatomic) UIDynamicItemBehavior *animationOptions;
 - (void) addItem:(id<UIDynamicItem>)item;
 - (void) removeItem:(id<UIDynamicItem>)item;
