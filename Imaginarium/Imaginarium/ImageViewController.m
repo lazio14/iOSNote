@@ -12,11 +12,18 @@
 
 @property (strong, nonatomic) UIImageView* imageView;
 @property (strong, nonatomic) UIImage  *image;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
 @implementation ImageViewController
 
+
+- (void) setScrollView:(UIScrollView *)scrollView
+{
+    _scrollView = scrollView;
+    self.scrollView.contentSize = self.image ? self.image.size : CGSizeZero;
+}
 - (void) setImageURL:(NSURL *)imageURL
 {
     _imageURL = imageURL;
@@ -36,16 +43,17 @@
 
 - (void) setImage:(UIImage *)image
 {
-    NSLog(@"TAG11");
     self.imageView.image = image;
     [self.imageView sizeToFit];
+    self.scrollView.contentSize = self.image ? self.image.size : CGSizeZero;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [self.view addSubview:self.imageView];
+    //[self.view addSubview:self.imageView];
+    [self.scrollView addSubview:self.imageView];
 }
 
 @end

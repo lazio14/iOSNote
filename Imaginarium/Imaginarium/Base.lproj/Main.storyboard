@@ -72,9 +72,17 @@
                     <view key="view" contentMode="scaleToFill" id="Tcb-53-qSf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V6C-jx-txM">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="L5T-Pm-R8q"/>
+                    <connections>
+                        <outlet property="scrollView" destination="V6C-jx-txM" id="KAa-oa-MTZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ORx-Wn-SIb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,6 +113,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="jTw-ss-hiJ"/>
+        <segue reference="wEH-wZ-kM1"/>
     </inferredMetricsTieBreakers>
 </document>
