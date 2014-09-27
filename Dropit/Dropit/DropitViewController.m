@@ -8,9 +8,10 @@
 
 #import "DropitViewController.h"
 #import "DropitBehavior.h"
+#import "BezierPathView.h"
 
 @interface DropitViewController () <UIDynamicAnimatorDelegate>
-@property (weak, nonatomic) IBOutlet UIView *gameView;
+@property (weak, nonatomic) IBOutlet BezierPathView *gameView;
 @property (strong, nonatomic) UIDynamicAnimator *animator;
 @property (strong, nonatomic) UIGravityBehavior *gravity;
 @property (strong, nonatomic) UICollisionBehavior *collider;
@@ -156,6 +157,17 @@ static const CGSize DROP_SIZE = {40, 40};
     if (self.droppingView)
     {
         self.attachment = [[UIAttachmentBehavior alloc] initWithItem:self.droppingView attachedToAnchor:anchorPoint];
+        
+        __weak DropitViewController *weakSelf = self; // 用weakself去消除循环引用
+        UIView *droppingView = self.droppingView;     // block中不能直接使用self.droppingView，因为后面self.droppingView=nil会影响到block。
+        
+        self.attachment.action = ^{
+            UIBezierPath *path = [[UIBezierPath alloc] init];
+            [path moveToPoint:weakSelf.attachment.anchorPoint]; // 不能使用参数传递进来的anchorPoint，因为attachDroppingViewToPoint只会执行一次，而anchorPoint是不断在变化的。
+            [path addLineToPoint:droppingView.center];
+            weakSelf.gameView.path = path;
+        };
+        
         self.droppingView = nil;
         [self.animator addBehavior:self.attachment];
     }

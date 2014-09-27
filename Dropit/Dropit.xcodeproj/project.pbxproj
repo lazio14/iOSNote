@@ -22,6 +22,7 @@
 		3A1023A719CED5FF001960B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A1023A519CED5FF001960B7 /* InfoPlist.strings */; };
 		3A1023A919CED5FF001960B7 /* DropitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1023A819CED5FF001960B7 /* DropitTests.m */; };
 		3A1023B419CEFD84001960B7 /* DropitBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1023B319CEFD84001960B7 /* DropitBehavior.m */; };
+		3A607E9119D655DF004F5AA9 /* BezierPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A607E9019D655DF004F5AA9 /* BezierPathView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		3A1023A819CED5FF001960B7 /* DropitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DropitTests.m; sourceTree = "<group>"; };
 		3A1023B219CEFD84001960B7 /* DropitBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropitBehavior.h; sourceTree = "<group>"; };
 		3A1023B319CEFD84001960B7 /* DropitBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropitBehavior.m; sourceTree = "<group>"; };
+		3A607E8F19D655DF004F5AA9 /* BezierPathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierPathView.h; sourceTree = "<group>"; };
+		3A607E9019D655DF004F5AA9 /* BezierPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BezierPathView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 			children = (
 				3A10239219CED5FF001960B7 /* DropitViewController.h */,
 				3A10239319CED5FF001960B7 /* DropitViewController.m */,
+				3A607E8F19D655DF004F5AA9 /* BezierPathView.h */,
+				3A607E9019D655DF004F5AA9 /* BezierPathView.m */,
 				3A10238F19CED5FF001960B7 /* Main.storyboard */,
 				3A1023B219CEFD84001960B7 /* DropitBehavior.h */,
 				3A1023B319CEFD84001960B7 /* DropitBehavior.m */,
@@ -257,6 +262,7 @@
 			files = (
 				3A10239419CED5FF001960B7 /* DropitViewController.m in Sources */,
 				3A1023B419CEFD84001960B7 /* DropitBehavior.m in Sources */,
+				3A607E9119D655DF004F5AA9 /* BezierPathView.m in Sources */,
 				3A10238E19CED5FF001960B7 /* DropitAppDelegate.m in Sources */,
 				3A10238A19CED5FF001960B7 /* main.m in Sources */,
 			);
@@ -463,6 +469,7 @@
 				3A1023AE19CED5FF001960B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A1023AF19CED5FF001960B7 /* Build configuration list for PBXNativeTarget "DropitTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +478,7 @@
 				3A1023B119CED5FF001960B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
