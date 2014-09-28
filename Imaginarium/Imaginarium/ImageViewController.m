@@ -20,13 +20,6 @@
 
 @implementation ImageViewController
 
-//#pragma -mark property
-
-- (UIActivityIndicatorView*) spinner
-{
-    return _spinner;
-}
-
 - (void) setScrollView:(UIScrollView *)scrollView
 {
     _scrollView = scrollView;
@@ -63,7 +56,7 @@
                                           if (!error)
                                           {
                                               if ([request.URL isEqual:self.imageURL]) {
-                                                  UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
+                                                  UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]]; // 这张图片不会持久保存。
                                                   dispatch_async(dispatch_get_main_queue(), ^{
                                                       self.image = image;
                                                   });
