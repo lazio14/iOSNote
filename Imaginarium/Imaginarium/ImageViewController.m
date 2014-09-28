@@ -13,11 +13,19 @@
 @property (strong, nonatomic) UIImageView* imageView;
 @property (strong, nonatomic) UIImage  *image;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
 
 @end
 
 @implementation ImageViewController
 
+//#pragma -mark property
+
+- (UIActivityIndicatorView*) spinner
+{
+    return _spinner;
+}
 
 - (void) setScrollView:(UIScrollView *)scrollView
 {
@@ -46,6 +54,7 @@
 {
     self.image = nil;
     if (self.imageURL) {
+        [self.spinner startAnimating];
         NSURLRequest* request = [NSURLRequest requestWithURL:self.imageURL];
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
@@ -79,6 +88,7 @@
 - (void) setImage:(UIImage *)image
 {
     self.imageView.image = image;
+    [self.spinner stopAnimating];
     [self.imageView sizeToFit];
     self.scrollView.contentSize = self.image ? self.image.size : CGSizeZero;
 }
