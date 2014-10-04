@@ -80,10 +80,13 @@
 
 - (void) setImage:(UIImage *)image
 {
+    self.scrollView.zoomScale = 1.0;
     self.imageView.image = image;
-    [self.spinner stopAnimating];
+    
+    self.scrollView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     [self.imageView sizeToFit];
     self.scrollView.contentSize = self.image ? self.image.size : CGSizeZero;
+    [self.spinner stopAnimating];
 }
 
 - (void)viewDidLoad

@@ -88,8 +88,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id detail = self.splitViewController.viewControllers[1];
+    if ([detail isKindOfClass:[UINavigationController class]])
+    {
+        detail = [((UINavigationController*)detail).viewControllers firstObject];
+    }
+    
     if ([detail isKindOfClass:[ImageViewController class]])
     {
+#warning you should refactor
         ImageViewController* ivc = (ImageViewController*)detail;
         ivc.imageURL = [self.photos[indexPath.row] valueForKey:@"url"];
         ivc.title = [self.photos[indexPath.row] valueForKey:@"title"];
