@@ -53,6 +53,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="laF-RF-f42"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="TUr-T1-Mny">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="fetchPhotos" destination="8Kj-c9-vkx" eventType="valueChanged" id="uVJ-sF-FU1"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ogo-AR-dJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

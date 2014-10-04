@@ -20,14 +20,20 @@
 //    NSArray *list = [NSArray arrayWithObjects:@"武汉",@"上海",@"北京",@"深圳",@"广州",@"重庆",@"香港",@"台海",@"天津", nil];
 }
 
-- (void)fetchPhotos
+- (IBAction)fetchPhotos
 {
-    NSMutableArray *photosArray = [[NSMutableArray alloc] init];
-    for (int i = 0; i < 10; i++) {
-        [self addPhoto:i URL:[NSURL URLWithString:@"http://g-ecx.images-amazon.com/images/G/01/kindle/dp/2014/KB/kb-slate-01-lg._V325449022_.jpg"] ARRAY:photosArray];
-    }
-    
-    self.photos = photosArray;
+    [self.refreshControl beginRefreshing];
+    dispatch_queue_t fetchQ = dispatch_queue_create("photo fetch", NULL);
+    dispatch_async(fetchQ, ^{
+        NSMutableArray *photosArray = [[NSMutableArray alloc] init];
+        for (int i = 0; i < 100000; i++) {
+            [self addPhoto:i URL:[NSURL URLWithString:@"http://g-ecx.images-amazon.com/images/G/01/kindle/dp/2014/KB/kb-slate-01-lg._V325449022_.jpg"] ARRAY:photosArray];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.refreshControl endRefreshing];
+            self.photos = photosArray;
+        });
+    });
 }
 
 - (void) addPhoto:(int)idx URL:(NSURL*)url ARRAY:(NSMutableArray*)photos
