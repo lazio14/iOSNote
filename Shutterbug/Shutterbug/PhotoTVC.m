@@ -99,6 +99,7 @@
             {
                 ImageViewController* ivc = (ImageViewController*)segue.destinationViewController;
                 ivc.imageURL = [self.photos[indexPath.row] valueForKey:@"url"];
+                ivc.title = [self.photos[indexPath.row] valueForKey:@"title"];
             }
         }
     }
