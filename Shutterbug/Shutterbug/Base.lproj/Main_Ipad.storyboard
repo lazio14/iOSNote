@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Split View Controller-->
+        <!--ShutterBug-->
         <scene sceneID="TLV-bN-z4X">
             <objects>
-                <splitViewController id="Dbu-zr-JAP" sceneMemberID="viewController">
+                <splitViewController title="ShutterBug" id="Dbu-zr-JAP" sceneMemberID="viewController">
                     <connections>
                         <segue destination="Bsi-2d-d0P" kind="relationship" relationship="masterViewController" id="OLS-C9-8iC"/>
                         <segue destination="JpH-Lq-vzD" kind="relationship" relationship="detailViewController" id="H67-In-5CQ"/>

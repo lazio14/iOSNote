@@ -8,7 +8,7 @@
 
 #import "ImageViewController.h"
 
-@interface ImageViewController () <UIScrollViewDelegate>
+@interface ImageViewController () <UIScrollViewDelegate, UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) UIImageView* imageView;
 @property (strong, nonatomic) UIImage  *image;
@@ -97,4 +97,18 @@
     [self.scrollView addSubview:self.imageView];
 }
 
+#pragma mark UISplitViewControllerDelegate
+- (void)awakeFromNib
+{
+    self.splitViewController.delegate = self;
+}
+
+
+- (BOOL) splitViewController:(UISplitViewController *)svc
+    shouldHideViewController:(UIViewController *)vc
+               inOrientation:(UIInterfaceOrientation)orientation
+{
+    //return UIInterfaceOrientationIsPortrait(orientation);
+    return false;
+}
 @end
