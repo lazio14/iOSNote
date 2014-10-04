@@ -95,12 +95,19 @@
     
     if ([detail isKindOfClass:[ImageViewController class]])
     {
-#warning you should refactor
-        ImageViewController* ivc = (ImageViewController*)detail;
-        ivc.imageURL = [self.photos[indexPath.row] valueForKey:@"url"];
-        ivc.title = [self.photos[indexPath.row] valueForKey:@"title"];
+//#warning you should refactor
+//        ImageViewController* ivc = (ImageViewController*)detail;
+//        ivc.imageURL = [self.photos[indexPath.row] valueForKey:@"url"];
+//        ivc.title = [self.photos[indexPath.row] valueForKey:@"title"];
+        [self prepareImage:detail dic:self.photos[indexPath.row]];
 
     }
+}
+
+- (void)prepareImage:(ImageViewController*)ivc dic:(NSMutableDictionary*)dic
+{
+    ivc.imageURL = [dic valueForKey:@"url"];
+    ivc.title = [dic valueForKey:@"title"];
 }
 
 #pragma mark - Navigation
@@ -116,9 +123,10 @@
         {
             if ([segue.destinationViewController isKindOfClass:[ImageViewController class]])
             {
-                ImageViewController* ivc = (ImageViewController*)segue.destinationViewController;
-                ivc.imageURL = [self.photos[indexPath.row] valueForKey:@"url"];
-                ivc.title = [self.photos[indexPath.row] valueForKey:@"title"];
+//                ImageViewController* ivc = (ImageViewController*)segue.destinationViewController;
+//                ivc.imageURL = [self.photos[indexPath.row] valueForKey:@"url"];
+//                ivc.title = [self.photos[indexPath.row] valueForKey:@"title"];
+                [self prepareImage:segue.destinationViewController dic:self.photos[indexPath.row]];
             }
         }
     }
