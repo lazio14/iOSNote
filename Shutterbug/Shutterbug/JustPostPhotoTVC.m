@@ -24,17 +24,18 @@
 {
     NSMutableArray *photosArray = [[NSMutableArray alloc] init];
     for (int i = 0; i < 10; i++) {
-        [self addPhoto:i URL:@"test" ARRAY:photosArray];
+        [self addPhoto:i URL:[NSURL URLWithString:@"http://g-ecx.images-amazon.com/images/G/01/kindle/dp/2014/KB/kb-slate-01-lg._V325449022_.jpg"] ARRAY:photosArray];
     }
     
     self.photos = photosArray;
 }
 
-- (void) addPhoto:(int)idx URL:(NSString*)url ARRAY:(NSMutableArray*)photos
+- (void) addPhoto:(int)idx URL:(NSURL*)url ARRAY:(NSMutableArray*)photos
 {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
     [dic setObject:[[NSString alloc] initWithFormat:@"this is title%d", idx] forKey:@"title"];
     [dic setObject:[[NSString alloc] initWithFormat:@"this is detail%d", idx] forKey:@"detail"];
+    [NSURL URLWithString:@"http://g-ecx.images-amazon.com/images/G/01/kindle/dp/2014/KB/kb-slate-01-lg._V325449022_.jpg"];
     [dic setObject:url forKey:@"url"];
     
     [photos addObject:dic];

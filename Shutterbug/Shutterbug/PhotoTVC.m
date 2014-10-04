@@ -7,6 +7,7 @@
 //
 
 #import "PhotoTVC.h"
+#import "ImageViewController.h"
 
 @interface PhotoTVC ()
 
@@ -83,14 +84,25 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([sender isKindOfClass:[UITableViewCell class]])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        if (indexPath)
+        {
+            if ([segue.destinationViewController isKindOfClass:[ImageViewController class]])
+            {
+                ImageViewController* ivc = (ImageViewController*)segue.destinationViewController;
+                ivc.imageURL = [self.photos[indexPath.row] valueForKey:@"url"];
+            }
+        }
+    }
 }
-*/
+
 
 @end

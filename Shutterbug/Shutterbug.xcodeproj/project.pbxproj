@@ -16,6 +16,7 @@
 		3A6323A019DE5C3600DE40F8 /* ShutterbugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A63239F19DE5C3600DE40F8 /* ShutterbugTests.m */; };
 		3A6323B119DE9E1800DE40F8 /* PhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6323B019DE9E1800DE40F8 /* PhotoTVC.m */; };
 		3A6323B419DE9EF700DE40F8 /* JustPostPhotoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6323B319DE9EF700DE40F8 /* JustPostPhotoTVC.m */; };
+		3A92F2DB19DF9AA800413B6D /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A92F2DA19DF9AA800413B6D /* ImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		3A6323B019DE9E1800DE40F8 /* PhotoTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTVC.m; sourceTree = "<group>"; };
 		3A6323B219DE9EF700DE40F8 /* JustPostPhotoTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JustPostPhotoTVC.h; sourceTree = "<group>"; };
 		3A6323B319DE9EF700DE40F8 /* JustPostPhotoTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JustPostPhotoTVC.m; sourceTree = "<group>"; };
+		3A92F2D919DF9AA800413B6D /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		3A92F2DA19DF9AA800413B6D /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,8 @@
 		3A63238219DE5C3600DE40F8 /* Shutterbug */ = {
 			isa = PBXGroup;
 			children = (
+				3A92F2D919DF9AA800413B6D /* ImageViewController.h */,
+				3A92F2DA19DF9AA800413B6D /* ImageViewController.m */,
 				3A6323AF19DE9E1800DE40F8 /* PhotoTVC.h */,
 				3A6323B019DE9E1800DE40F8 /* PhotoTVC.m */,
 				3A6323B219DE9EF700DE40F8 /* JustPostPhotoTVC.h */,
@@ -229,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A92F2DB19DF9AA800413B6D /* ImageViewController.m in Sources */,
 				3A6323B119DE9E1800DE40F8 /* PhotoTVC.m in Sources */,
 				3A63238C19DE5C3600DE40F8 /* ViewController.m in Sources */,
 				3A6323B419DE9EF700DE40F8 /* JustPostPhotoTVC.m in Sources */,
@@ -360,6 +366,7 @@
 				INFOPLIST_FILE = Shutterbug/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -370,6 +377,7 @@
 				INFOPLIST_FILE = Shutterbug/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -426,6 +434,7 @@
 				3A6323A519DE5C3600DE40F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A6323A619DE5C3600DE40F8 /* Build configuration list for PBXNativeTarget "ShutterbugTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +443,7 @@
 				3A6323A819DE5C3600DE40F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
