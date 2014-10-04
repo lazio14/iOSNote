@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A24C32419DFA879006E4204 /* Main_Ipad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A24C32219DFA879006E4204 /* Main_Ipad.storyboard */; };
 		3A63238619DE5C3600DE40F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A63238519DE5C3600DE40F8 /* main.m */; };
 		3A63238919DE5C3600DE40F8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A63238819DE5C3600DE40F8 /* AppDelegate.m */; };
 		3A63238C19DE5C3600DE40F8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A63238B19DE5C3600DE40F8 /* ViewController.m */; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A24C32319DFA879006E4204 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_Ipad.storyboard; sourceTree = "<group>"; };
 		3A63238019DE5C3600DE40F8 /* Shutterbug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shutterbug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A63238419DE5C3600DE40F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A63238519DE5C3600DE40F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				3A63238A19DE5C3600DE40F8 /* ViewController.h */,
 				3A63238B19DE5C3600DE40F8 /* ViewController.m */,
 				3A63238D19DE5C3600DE40F8 /* Main.storyboard */,
+				3A24C32219DFA879006E4204 /* Main_Ipad.storyboard */,
 				3A63239019DE5C3600DE40F8 /* Images.xcassets */,
 				3A63239219DE5C3600DE40F8 /* LaunchScreen.xib */,
 				3A63238319DE5C3600DE40F8 /* Supporting Files */,
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A63238F19DE5C3600DE40F8 /* Main.storyboard in Resources */,
+				3A24C32419DFA879006E4204 /* Main_Ipad.storyboard in Resources */,
 				3A63239419DE5C3600DE40F8 /* LaunchScreen.xib in Resources */,
 				3A63239119DE5C3600DE40F8 /* Images.xcassets in Resources */,
 			);
@@ -262,6 +266,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3A24C32219DFA879006E4204 /* Main_Ipad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A24C32319DFA879006E4204 /* Base */,
+			);
+			name = Main_Ipad.storyboard;
+			sourceTree = "<group>";
+		};
 		3A63238D19DE5C3600DE40F8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -84,6 +84,19 @@
 }
 */
 
+#pragma mark - UITableViewDelegete
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id detail = self.splitViewController.viewControllers[1];
+    if ([detail isKindOfClass:[ImageViewController class]])
+    {
+        ImageViewController* ivc = (ImageViewController*)detail;
+        ivc.imageURL = [self.photos[indexPath.row] valueForKey:@"url"];
+        ivc.title = [self.photos[indexPath.row] valueForKey:@"title"];
+
+    }
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
