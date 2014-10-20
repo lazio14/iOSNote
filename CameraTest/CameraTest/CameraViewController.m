@@ -8,7 +8,7 @@
 
 #import "CameraViewController.h"
 
-@interface CameraViewController ()
+@interface CameraViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
 @property (weak, nonatomic) IBOutlet UIButton *doneBtn;
@@ -16,7 +16,11 @@
 
 @implementation CameraViewController
 
-
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 
 @end
