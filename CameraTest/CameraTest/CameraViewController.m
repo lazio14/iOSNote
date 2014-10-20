@@ -25,5 +25,18 @@
     [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    //[self fatalAlert:@"test"];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"AlertViewTest"
+                                                   message:@"message"
+                                                  delegate:self
+                                         cancelButtonTitle:@"Cancel"
+                                         otherButtonTitles:@"OtherBtn",nil];
+    [alert show];
+
+}
+
 
 @end
