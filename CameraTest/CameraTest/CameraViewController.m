@@ -21,6 +21,9 @@
     [textField resignFirstResponder];
     return YES;
 }
+- (IBAction)cancel:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+}
 
 
 @end
