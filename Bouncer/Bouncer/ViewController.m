@@ -76,11 +76,26 @@
 {
     if (!_elastic) {
         UIDynamicItemBehavior* elastic = [[UIDynamicItemBehavior alloc] init];
-        elastic.elasticity = 1.0;
+        //elastic.elasticity = 1.0;
         [self.animator addBehavior:elastic];
         self.elastic = elastic;
+        [self resetElasticity];
     }
     return _elastic;
+}
+
+- (void) resetElasticity
+{
+    NSNumber *elasticity = [[NSUserDefaults standardUserDefaults] valueForKey:@"Settings_Elasticity"];
+    if (elasticity) {
+        NSLog(@"resetElasticity USER SET");
+        self.elastic.elasticity = [elasticity floatValue];
+    }
+    else
+    {
+        NSLog(@"resetElasticity USER NOT SET");
+        self.elastic.elasticity = 1.0;
+    }
 }
 
 static CGSize blockSize = {40, 40};
@@ -107,6 +122,11 @@ static CGSize blockSize = {40, 40};
     [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         [self resumeGame];
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSUserDefaultsDidChangeNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self resetElasticity];
+    }];
+
 
 }
 
