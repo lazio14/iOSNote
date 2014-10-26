@@ -17,6 +17,7 @@
 @property (nonatomic, weak) UICollisionBehavior* collider;
 @property (nonatomic, weak) UIGravityBehavior* gravity;
 @property (nonatomic, weak) UIDynamicItemBehavior* elastic;
+@property (nonatomic, weak) UIDynamicItemBehavior* quicksand;
 @property (nonatomic, strong) CMMotionManager* motionManager;
 @end
 
@@ -37,6 +38,17 @@
         _animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     }
     return _animator;
+}
+
+- (UIDynamicItemBehavior*) quicksand
+{
+    if (_quicksand) {
+        UIDynamicItemBehavior *quicksand = [[UIDynamicItemBehavior alloc] init];
+        quicksand.resistance = 0;
+        [self.animator addBehavior:quicksand];
+        _quicksand = quicksand;
+    }
+    return _quicksand;
 }
 
 - (UICollisionBehavior*) collider
@@ -105,29 +117,33 @@ static CGSize blockSize = {40, 40};
     NSLog(@"pauseGame");
     [self.motionManager stopAccelerometerUpdates];
     self.gravity.gravityDirection = CGVectorMake(0, 0);
+    self.quicksand.resistance = 1.0;
 }
 
 - (void) resumeGame
 {
     if (!self.redBlock) {
         self.redBlock = [self addBlockOffsetFromCenterBy:(UIOffsetMake(-100, 0))];
+        self.redBlock.backgroundColor = [UIColor redColor];
+        [self.collider addItem: self.redBlock];
+        [self.gravity addItem: self.redBlock];
+        [self.elastic addItem: self.redBlock];
+        [self.quicksand addItem:self.redBlock];
     }
-    self.redBlock.backgroundColor = [UIColor redColor];
-    [self.collider addItem: self.redBlock];
-    [self.gravity addItem: self.redBlock];
-    [self.elastic addItem: self.redBlock];
     
     if (!self.blackBlock) {
         self.blackBlock = [self addBlockOffsetFromCenterBy:UIOffsetMake(100, 0)];
+        self.blackBlock.backgroundColor = [UIColor blackColor];
+        [self.collider addItem:self.blackBlock];
+        [self.quicksand addItem:self.blackBlock];
     }
-    self.blackBlock.backgroundColor = [UIColor blackColor];
-    [self.collider addItem:self.blackBlock];
     
+    self.quicksand.resistance = 0;
+    self.gravity.gravityDirection = CGVectorMake(0, 0);
     if (!self.motionManager.isAccelerometerActive) {
         [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
             CGFloat x = accelerometerData.acceleration.x;
             CGFloat y = accelerometerData.acceleration.y;
-            //self.gravity.gravityDirection = CGVectorMake(x, y);
             
             switch (self.interfaceOrientation) {
                 case UIInterfaceOrientationLandscapeRight:
