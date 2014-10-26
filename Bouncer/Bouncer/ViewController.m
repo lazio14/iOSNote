@@ -86,8 +86,13 @@ static CGSize blockSize = {40, 40};
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    [self startGame];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self resumeGame];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,15 +100,26 @@ static CGSize blockSize = {40, 40};
     // Dispose of any resources that can be recreated.
 }
 
-- (void) startGame
+- (void)pauseGame
 {
-    self.redBlock = [self addBlockOffsetFromCenterBy:(UIOffsetMake(-100, 0))];
+    NSLog(@"pauseGame");
+    [self.motionManager stopAccelerometerUpdates];
+    self.gravity.gravityDirection = CGVectorMake(0, 0);
+}
+
+- (void) resumeGame
+{
+    if (!self.redBlock) {
+        self.redBlock = [self addBlockOffsetFromCenterBy:(UIOffsetMake(-100, 0))];
+    }
     self.redBlock.backgroundColor = [UIColor redColor];
     [self.collider addItem: self.redBlock];
     [self.gravity addItem: self.redBlock];
     [self.elastic addItem: self.redBlock];
     
-    self.blackBlock = [self addBlockOffsetFromCenterBy:UIOffsetMake(100, 0)];
+    if (!self.blackBlock) {
+        self.blackBlock = [self addBlockOffsetFromCenterBy:UIOffsetMake(100, 0)];
+    }
     self.blackBlock.backgroundColor = [UIColor blackColor];
     [self.collider addItem:self.blackBlock];
     
@@ -132,6 +148,24 @@ static CGSize blockSize = {40, 40};
             }
             
         }];
+    }
+}
+
+- (BOOL) isPause
+{
+    return !self.motionManager.accelerometerActive;
+}
+
+- (void)tap
+{
+    NSLog(@"tap");
+    if ([self isPause])
+    {
+        [self resumeGame];
+    }
+    else
+    {
+        [self pauseGame];
     }
 }
 
