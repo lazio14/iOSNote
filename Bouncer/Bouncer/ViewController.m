@@ -106,7 +106,26 @@ static CGSize blockSize = {40, 40};
         [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
             CGFloat x = accelerometerData.acceleration.x;
             CGFloat y = accelerometerData.acceleration.y;
-            self.gravity.gravityDirection = CGVectorMake(x, y);
+            //self.gravity.gravityDirection = CGVectorMake(x, y);
+            
+            switch (self.interfaceOrientation) {
+                case UIInterfaceOrientationLandscapeRight:
+                    self.gravity.gravityDirection = CGVectorMake(-y, -x);
+                    break;
+                case UIInterfaceOrientationLandscapeLeft:
+                    self.gravity.gravityDirection = CGVectorMake(y, x);
+                    break;
+                case UIInterfaceOrientationPortrait:
+                    self.gravity.gravityDirection = CGVectorMake(x, -y);
+                    break;
+                case UIInterfaceOrientationPortraitUpsideDown:
+                    self.gravity.gravityDirection = CGVectorMake(-x, y);
+                    break;
+        
+                default:
+                    break;
+            }
+            
         }];
     }
 }
