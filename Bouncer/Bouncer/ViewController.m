@@ -12,6 +12,7 @@
 @interface ViewController ()
 
 @property (nonatomic, strong) UIView *redBlock;
+@property (nonatomic, strong) UIView *blackBlock;
 @property (nonatomic, strong) UIDynamicAnimator* animator;
 @property (nonatomic, weak) UICollisionBehavior* collider;
 @property (nonatomic, weak) UIGravityBehavior* gravity;
@@ -96,11 +97,15 @@ static CGSize blockSize = {40, 40};
 
 - (void) startGame
 {
-    self.redBlock = [self addBlockOffsetFromCenterBy:(UIOffsetMake(0, 0))];
+    self.redBlock = [self addBlockOffsetFromCenterBy:(UIOffsetMake(-100, 0))];
     self.redBlock.backgroundColor = [UIColor redColor];
     [self.collider addItem: self.redBlock];
     [self.gravity addItem: self.redBlock];
     [self.elastic addItem: self.redBlock];
+    
+    self.blackBlock = [self addBlockOffsetFromCenterBy:UIOffsetMake(100, 0)];
+    self.blackBlock.backgroundColor = [UIColor blackColor];
+    [self.collider addItem:self.blackBlock];
     
     if (!self.motionManager.isAccelerometerActive) {
         [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
