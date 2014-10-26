@@ -99,6 +99,15 @@ static CGSize blockSize = {40, 40};
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)]];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillResignActiveNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self pauseGame];
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self resumeGame];
+    }];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
