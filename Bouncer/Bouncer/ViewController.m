@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <CoreMotion/CoreMotion.h>
 
 @interface ViewController ()
 
@@ -15,9 +16,19 @@
 @property (nonatomic, weak) UICollisionBehavior* collider;
 @property (nonatomic, weak) UIGravityBehavior* gravity;
 @property (nonatomic, weak) UIDynamicItemBehavior* elastic;
+@property (nonatomic, strong) CMMotionManager* motionManager;
 @end
 
 @implementation ViewController
+
+- (CMMotionManager*) motionManager
+{
+    if (!_motionManager) {
+        _motionManager = [[CMMotionManager alloc] init];
+        _motionManager.accelerometerUpdateInterval = 0.1;
+    }
+    return _motionManager;
+}
 
 - (UIDynamicAnimator*)animator
 {
@@ -90,6 +101,14 @@ static CGSize blockSize = {40, 40};
     [self.collider addItem: self.redBlock];
     [self.gravity addItem: self.redBlock];
     [self.elastic addItem: self.redBlock];
+    
+    if (!self.motionManager.isAccelerometerActive) {
+        [self.motionManager startAccelerometerUpdatesToQueue:[NSOperationQueue mainQueue] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+            CGFloat x = accelerometerData.acceleration.x;
+            CGFloat y = accelerometerData.acceleration.y;
+            self.gravity.gravityDirection = CGVectorMake(x, y);
+        }];
+    }
 }
 
 @end
