@@ -9,6 +9,7 @@
 #import "CameraViewController.h"
 
 @interface CameraViewController () <UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *photoView;
 @property (weak, nonatomic) IBOutlet UIButton *doneBtn;
@@ -49,15 +50,32 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
+    NSLog(@"didFinishPickingMediaWithInfo");
+    UIImage* editedImage = [info objectForKey:UIImagePickerControllerEditedImage];
+    self.photoView.image = editedImage;
+    
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (IBAction)Done:(id)sender {
+    NSLog(@"Done button click");
+    
+    
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        NSLog(@"SORRY NO CAMERA IS AVALIBLE");
+    }
+    else
+    {
+        NSLog(@"CAMERA IS OK");
+    }
+    
+    
+    
     UIImagePickerController *uiipc = [[UIImagePickerController alloc] init];
+    uiipc.allowsEditing = YES;
     uiipc.delegate = self;
 
     uiipc.sourceType = UIImagePickerControllerSourceTypeCamera;
-    uiipc.allowsEditing = YES;
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
+    [self presentModalViewController:uiipc animated:YES];
 }
 
 
