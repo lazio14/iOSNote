@@ -100,9 +100,9 @@
     if ([cell isKindOfClass:[PostTableViewCell class]])
     {
         PostTableViewCell *textCell = (PostTableViewCell *)cell;
-                textCell.content.numberOfLines = 10;
+                textCell.content.numberOfLines = 0;
         textCell.content.text = self.posts[indexPath.row];
-        textCell.content.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+        textCell.content.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     }
 }
 

@@ -20,4 +20,11 @@
     // Configure the view for the selected state
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    [self.contentView layoutIfNeeded];
+    self.content.preferredMaxLayoutWidth = CGRectGetWidth(self.content.frame);
+}
+
 @end
