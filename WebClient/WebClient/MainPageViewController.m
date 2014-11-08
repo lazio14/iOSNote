@@ -5,11 +5,11 @@
 //  Created by lazio14 on 14/11/8.
 //  Copyright (c) 2014年 lazio14. All rights reserved.
 //
-
+#import "Hpple/TFHpple.h"
 #import "MainPageViewController.h"
 
 @interface MainPageViewController ()
-
+@property (strong, nonatomic) NSArray *posts;
 @end
 
 @implementation MainPageViewController
@@ -25,6 +25,14 @@
     [self startDownloadHTMLFile];
     
     
+}
+
+- (NSArray *)posts
+{
+    if (_posts) {
+        _posts = [[NSArray alloc] init];
+    }
+    return _posts;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,12 +51,18 @@
                                                         if (!error)
                                                         {
                                                             NSString* htmlContent = [[NSString alloc] initWithContentsOfURL:location];
-                                                            NSLog(htmlContent);
-                                                            NSLog(@"HELLO");
+                                                            [self parseHTMLContent:htmlContent];
+                                                            [self.tableView reloadData];
+                                                            
                                                         }
                                                     }];
     [task resume];
-    NSLog(@"GOOD");
+
+}
+
+- (void) parseHTMLContent:(NSString *)htmlContent
+{
+    
 }
 
 #pragma mark - Table view data source

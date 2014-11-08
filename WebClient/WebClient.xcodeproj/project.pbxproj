@@ -14,6 +14,10 @@
 		3A1DCD961A0DB135005E34E4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1DCD941A0DB135005E34E4 /* LaunchScreen.xib */; };
 		3A1DCDA21A0DB135005E34E4 /* WebClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1DCDA11A0DB135005E34E4 /* WebClientTests.m */; };
 		3A1DCDAD1A0DB40E005E34E4 /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1DCDAC1A0DB40E005E34E4 /* MainPageViewController.m */; };
+		3A1DCDAF1A0DBDB9005E34E4 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1DCDAE1A0DBDB9005E34E4 /* libxml2.2.dylib */; };
+		3A1DCDB71A0DBE21005E34E4 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1DCDB11A0DBE21005E34E4 /* TFHpple.m */; };
+		3A1DCDB81A0DBE21005E34E4 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1DCDB31A0DBE21005E34E4 /* TFHppleElement.m */; };
+		3A1DCDB91A0DBE21005E34E4 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1DCDB61A0DBE21005E34E4 /* XPathQuery.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,13 @@
 		3A1DCDA11A0DB135005E34E4 /* WebClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebClientTests.m; sourceTree = "<group>"; };
 		3A1DCDAB1A0DB40E005E34E4 /* MainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageViewController.h; sourceTree = "<group>"; };
 		3A1DCDAC1A0DB40E005E34E4 /* MainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageViewController.m; sourceTree = "<group>"; };
+		3A1DCDAE1A0DBDB9005E34E4 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		3A1DCDB01A0DBE21005E34E4 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = WebClient/Hpple/TFHpple.h; sourceTree = "<group>"; };
+		3A1DCDB11A0DBE21005E34E4 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = WebClient/Hpple/TFHpple.m; sourceTree = "<group>"; };
+		3A1DCDB21A0DBE21005E34E4 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = WebClient/Hpple/TFHppleElement.h; sourceTree = "<group>"; };
+		3A1DCDB31A0DBE21005E34E4 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleElement.m; path = WebClient/Hpple/TFHppleElement.m; sourceTree = "<group>"; };
+		3A1DCDB51A0DBE21005E34E4 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		3A1DCDB61A0DBE21005E34E4 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A1DCDAF1A0DBDB9005E34E4 /* libxml2.2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +75,7 @@
 		3A1DCD791A0DB135005E34E4 = {
 			isa = PBXGroup;
 			children = (
+				3A1DCDBA1A0DBE2A005E34E4 /* Hpple */,
 				3A1DCD841A0DB135005E34E4 /* WebClient */,
 				3A1DCD9E1A0DB135005E34E4 /* WebClientTests */,
 				3A1DCD831A0DB135005E34E4 /* Products */,
@@ -96,6 +109,7 @@
 		3A1DCD851A0DB135005E34E4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3A1DCDAE1A0DBDB9005E34E4 /* libxml2.2.dylib */,
 				3A1DCD861A0DB135005E34E4 /* Info.plist */,
 				3A1DCD871A0DB135005E34E4 /* main.m */,
 			);
@@ -117,6 +131,28 @@
 				3A1DCDA01A0DB135005E34E4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A1DCDB41A0DBE21005E34E4 /* XPath */ = {
+			isa = PBXGroup;
+			children = (
+				3A1DCDB51A0DBE21005E34E4 /* XPathQuery.h */,
+				3A1DCDB61A0DBE21005E34E4 /* XPathQuery.m */,
+			);
+			name = XPath;
+			path = WebClient/Hpple/XPath;
+			sourceTree = "<group>";
+		};
+		3A1DCDBA1A0DBE2A005E34E4 /* Hpple */ = {
+			isa = PBXGroup;
+			children = (
+				3A1DCDB01A0DBE21005E34E4 /* TFHpple.h */,
+				3A1DCDB11A0DBE21005E34E4 /* TFHpple.m */,
+				3A1DCDB21A0DBE21005E34E4 /* TFHppleElement.h */,
+				3A1DCDB31A0DBE21005E34E4 /* TFHppleElement.m */,
+				3A1DCDB41A0DBE21005E34E4 /* XPath */,
+			);
+			name = Hpple;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +258,9 @@
 				3A1DCD8B1A0DB135005E34E4 /* AppDelegate.m in Sources */,
 				3A1DCD881A0DB135005E34E4 /* main.m in Sources */,
 				3A1DCDAD1A0DB40E005E34E4 /* MainPageViewController.m in Sources */,
+				3A1DCDB71A0DBE21005E34E4 /* TFHpple.m in Sources */,
+				3A1DCDB91A0DBE21005E34E4 /* XPathQuery.m in Sources */,
+				3A1DCDB81A0DBE21005E34E4 /* TFHppleElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,8 +382,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = WebClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = /usr/lib/libxml2.dylib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -353,8 +394,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = WebClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = /usr/lib/libxml2.dylib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
