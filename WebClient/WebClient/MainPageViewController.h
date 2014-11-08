@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MainPageViewController.h
 //  WebClient
 //
 //  Created by lazio14 on 14/11/8.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MainPageViewController : UITableViewController
 
 @end
-
