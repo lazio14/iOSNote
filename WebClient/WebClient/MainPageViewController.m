@@ -16,11 +16,15 @@
 
 @implementation MainPageViewController
 
+static NSString *PostCellIdentifier = @"PostCell";
+static NSString *HTMLURL = @"http://makesmethink.com";
+static NSString* postXPath = @"//body//div[@class='post']//p//a";
+
 - (PostTableViewCell *)prototypeCell
 {
     if (!_prototypeCell)
     {
-        _prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:@"PostCell"];
+        _prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:PostCellIdentifier];
     }
     return _prototypeCell;
 }
@@ -45,7 +49,7 @@
 
 - (void)startDownloadHTMLFile {
     
-    NSURL* htmlURL = [NSURL URLWithString:@"http://makesmethink.com"];
+    NSURL* htmlURL = [NSURL URLWithString:HTMLURL];
     NSURLRequest* request = [NSURLRequest requestWithURL:htmlURL];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
@@ -66,7 +70,7 @@
 {
     NSData  * data      = [NSData dataWithContentsOfFile: htmlPath];
     TFHpple * doc       = [[TFHpple alloc] initWithHTMLData:data];
-    NSArray * elements  = [doc searchWithXPathQuery:@"//body//div[@class='post']//p//a"];
+    NSArray * elements  = [doc searchWithXPathQuery:postXPath];
     
     [self.posts removeAllObjects];
     NSInteger len = [elements count];
@@ -90,7 +94,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:PostCellIdentifier forIndexPath:indexPath];
     [self configureCell:cell forRowAtIndexPath:indexPath];
     return cell;
 }
