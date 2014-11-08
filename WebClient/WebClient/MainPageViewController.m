@@ -50,18 +50,31 @@
                                                     completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
                                                         if (!error)
                                                         {
-                                                            NSString* htmlContent = [[NSString alloc] initWithContentsOfURL:location];
-                                                            [self parseHTMLContent:htmlContent];
+                                                            [self parseHTMLContent:location];
                                                             [self.tableView reloadData];
                                                             
                                                         }
                                                     }];
     [task resume];
-
+    
 }
 
-- (void) parseHTMLContent:(NSString *)htmlContent
+- (void) parseHTMLContent:(NSString *)htmlPath
 {
+    NSData  * data      = [NSData dataWithContentsOfFile: htmlPath];
+    TFHpple * doc       = [[TFHpple alloc] initWithHTMLData:data];
+    NSArray * elements  = [doc searchWithXPathQuery:@"//body//div[@class='post']//p//a"];
+    
+        NSInteger len = [elements count];
+        for (NSInteger i = 0; i < len; i++) {
+            TFHppleElement * element = [elements objectAtIndex:i];
+            NSLog(@"%@\n", [element text]);                       // The text inside the HTML element (the content of the first text node)
+    
+            [element tagName];                    // "a"
+            [element attributes];                 // NSDictionary of href, class, id, etc.
+            [element objectForKey:@"href"];       // Easy access to single attribute
+            [element firstChildWithTagName:@"b"]; // The first "b" child node
+        }
     
 }
 
