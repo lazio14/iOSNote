@@ -9,7 +9,7 @@
 #import "MainPageViewController.h"
 
 @interface MainPageViewController ()
-@property (strong, nonatomic) NSArray *posts;
+@property (strong, nonatomic) NSMutableArray *posts;
 @end
 
 @implementation MainPageViewController
@@ -29,8 +29,8 @@
 
 - (NSArray *)posts
 {
-    if (_posts) {
-        _posts = [[NSArray alloc] init];
+    if (!_posts) {
+        _posts = [[NSMutableArray alloc] init];
     }
     return _posts;
 }
@@ -65,42 +65,43 @@
     TFHpple * doc       = [[TFHpple alloc] initWithHTMLData:data];
     NSArray * elements  = [doc searchWithXPathQuery:@"//body//div[@class='post']//p//a"];
     
-        NSInteger len = [elements count];
-        for (NSInteger i = 0; i < len; i++) {
-            TFHppleElement * element = [elements objectAtIndex:i];
-            NSLog(@"%@\n", [element text]);                       // The text inside the HTML element (the content of the first text node)
-    
-            [element tagName];                    // "a"
-            [element attributes];                 // NSDictionary of href, class, id, etc.
-            [element objectForKey:@"href"];       // Easy access to single attribute
-            [element firstChildWithTagName:@"b"]; // The first "b" child node
-        }
+    [self.posts removeAllObjects];
+    NSInteger len = [elements count];
+    for (NSInteger i = 0; i < len; i++) {
+        TFHppleElement * element = [elements objectAtIndex:i];
+        NSLog(@"%@\n", [element text]);                       // The text inside the HTML element (the content of the first text node)
+        //            [element tagName];                    // "a"
+        //            [element attributes];                 // NSDictionary of href, class, id, etc.
+        //            [element objectForKey:@"href"];       // Easy access to single attribute
+        //            [element firstChildWithTagName:@"b"]; // The first "b" child node
+        [self.posts addObject:[element text]];
+    }
     
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    NSLog(@"%d 11111", [self.posts count]);
+    return [self.posts count];
 }
 
-/*
- - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
- UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
- 
- // Configure the cell...
- 
- return cell;
- }
- */
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell" forIndexPath:indexPath];
+//    NSDictionary *photo = self.posts[indexPath.row];
+//    cell.textLabel.text = [photo valueForKey:@"title"];
+//    cell.detailTextLabel.text = [photo valueForKey:@"detail"];
+    cell.textLabel.text = self.posts[indexPath.row];
+    NSLog(self.posts[indexPath.row]);
+    NSLog(@"SDFADFADSFD");
+    return cell;
+}
+
 
 /*
  // Override to support conditional editing of the table view.
