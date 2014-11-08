@@ -6,6 +6,7 @@
 //  Copyright (c) 2014年 lazio14. All rights reserved.
 //
 #import "Hpple/TFHpple.h"
+#import "PostTableViewCell.h"
 #import "MainPageViewController.h"
 
 @interface MainPageViewController ()
@@ -16,15 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self startDownloadHTMLFile];
-    
-    
 }
 
 - (NSArray *)posts
@@ -37,7 +30,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)startDownloadHTMLFile {
@@ -86,22 +78,43 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"%d 11111", [self.posts count]);
     return [self.posts count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Post Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
 //    NSDictionary *photo = self.posts[indexPath.row];
 //    cell.textLabel.text = [photo valueForKey:@"title"];
 //    cell.detailTextLabel.text = [photo valueForKey:@"detail"];
-    cell.textLabel.text = self.posts[indexPath.row];
+//    cell.textLabel.text = self.posts[indexPath.row];
+    
+    [self configureCell:cell forRowAtIndexPath:indexPath];
+
+    
     NSLog(self.posts[indexPath.row]);
-    NSLog(@"SDFADFADSFD");
     return cell;
 }
 
+- (void)configureCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell isKindOfClass:[PostTableViewCell class]])
+    {
+        PostTableViewCell *textCell = (PostTableViewCell *)cell;
+        textCell.content.text = self.posts[indexPath.row];
+        textCell.content.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+    }
+}
+
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    [self configureCell:self.prototypeCell forRowAtIndexPath:indexPath];
+//    [self.prototypeCell layoutIfNeeded];
+//    
+//    CGSize size = [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+//    return size.height+1;
+//}
 
 /*
  // Override to support conditional editing of the table view.
