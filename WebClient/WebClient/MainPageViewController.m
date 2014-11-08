@@ -11,9 +11,20 @@
 
 @interface MainPageViewController ()
 @property (strong, nonatomic) NSMutableArray *posts;
+@property (nonatomic, strong) PostTableViewCell *prototypeCell;
 @end
 
 @implementation MainPageViewController
+
+- (PostTableViewCell *)prototypeCell
+{
+    if (!_prototypeCell)
+    {
+        _prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:@"PostCell"];
+    }
+    return _prototypeCell;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -101,20 +112,27 @@
     if ([cell isKindOfClass:[PostTableViewCell class]])
     {
         PostTableViewCell *textCell = (PostTableViewCell *)cell;
+                textCell.content.numberOfLines = 10;
         textCell.content.text = self.posts[indexPath.row];
         textCell.content.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
     }
 }
 
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
 //    [self configureCell:self.prototypeCell forRowAtIndexPath:indexPath];
 //    [self.prototypeCell layoutIfNeeded];
 //    
 //    CGSize size = [self.prototypeCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-//    return size.height+1;
-//}
+    return 100;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
+}
+
 
 /*
  // Override to support conditional editing of the table view.

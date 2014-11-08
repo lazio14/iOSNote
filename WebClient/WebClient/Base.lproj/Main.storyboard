@@ -19,16 +19,19 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="op3-IM-dAw" id="6bI-KM-h2j">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzx-cz-Gh3">
-                                            <rect key="frame" x="8" y="8" width="59" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="392" translatesAutoresizingMaskIntoConstraints="NO" id="lzx-cz-Gh3">
+                                            <rect key="frame" x="33" y="22" width="500" height="56"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="lzx-cz-Gh3" firstAttribute="leading" secondItem="6bI-KM-h2j" secondAttribute="leadingMargin" id="2w1-lf-lpv"/>
-                                        <constraint firstItem="lzx-cz-Gh3" firstAttribute="top" secondItem="6bI-KM-h2j" secondAttribute="topMargin" id="zNh-sR-hdf"/>
+                                        <constraint firstItem="lzx-cz-Gh3" firstAttribute="leading" secondItem="6bI-KM-h2j" secondAttribute="leadingMargin" constant="25" id="0tX-Tj-uLp"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="lzx-cz-Gh3" secondAttribute="trailing" constant="26" id="Dlf-Sk-wgc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="lzx-cz-Gh3" secondAttribute="bottom" constant="13" id="VU0-fT-3vf"/>
+                                        <constraint firstItem="lzx-cz-Gh3" firstAttribute="centerX" secondItem="6bI-KM-h2j" secondAttribute="centerX" id="YEa-Us-g55"/>
+                                        <constraint firstItem="lzx-cz-Gh3" firstAttribute="top" secondItem="6bI-KM-h2j" secondAttribute="topMargin" constant="14" id="nBw-wy-QIq"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -44,7 +47,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GhT-Zk-Q97" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="425" y="402"/>
+            <point key="canvasLocation" x="425" y="394"/>
         </scene>
     </scenes>
 </document>
