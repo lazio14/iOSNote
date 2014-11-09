@@ -19,6 +19,7 @@
 		3A1DCDB81A0DBE21005E34E4 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1DCDB31A0DBE21005E34E4 /* TFHppleElement.m */; };
 		3A1DCDB91A0DBE21005E34E4 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1DCDB61A0DBE21005E34E4 /* XPathQuery.m */; };
 		3A9768611A0DE3B3007B777B /* PostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9768601A0DE3B3007B777B /* PostTableViewCell.m */; };
+		3ACF10911A0F6DC300266B84 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ACF10901A0F6DC300266B84 /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +53,10 @@
 		3A1DCDB31A0DBE21005E34E4 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleElement.m; path = WebClient/Hpple/TFHppleElement.m; sourceTree = "<group>"; };
 		3A1DCDB51A0DBE21005E34E4 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		3A1DCDB61A0DBE21005E34E4 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
-		3A97685F1A0DE3B3007B777B /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewCell.h; sourceTree = "<group>"; };
-		3A9768601A0DE3B3007B777B /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewCell.m; sourceTree = "<group>"; };
+		3A97685F1A0DE3B3007B777B /* PostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostTableViewCell.h; path = ../PostTableViewCell.h; sourceTree = "<group>"; };
+		3A9768601A0DE3B3007B777B /* PostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostTableViewCell.m; path = ../PostTableViewCell.m; sourceTree = "<group>"; };
+		3ACF108F1A0F6DC300266B84 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		3ACF10901A0F6DC300266B84 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +81,6 @@
 		3A1DCD791A0DB135005E34E4 = {
 			isa = PBXGroup;
 			children = (
-				3A97685F1A0DE3B3007B777B /* PostTableViewCell.h */,
-				3A9768601A0DE3B3007B777B /* PostTableViewCell.m */,
 				3A1DCDBA1A0DBE2A005E34E4 /* Hpple */,
 				3A1DCD841A0DB135005E34E4 /* WebClient */,
 				3A1DCD9E1A0DB135005E34E4 /* WebClientTests */,
@@ -99,6 +100,10 @@
 		3A1DCD841A0DB135005E34E4 /* WebClient */ = {
 			isa = PBXGroup;
 			children = (
+				3ACF108F1A0F6DC300266B84 /* MainViewController.h */,
+				3ACF10901A0F6DC300266B84 /* MainViewController.m */,
+				3A97685F1A0DE3B3007B777B /* PostTableViewCell.h */,
+				3A9768601A0DE3B3007B777B /* PostTableViewCell.m */,
 				3A1DCDAB1A0DB40E005E34E4 /* MainPageViewController.h */,
 				3A1DCDAC1A0DB40E005E34E4 /* MainPageViewController.m */,
 				3A1DCD891A0DB135005E34E4 /* AppDelegate.h */,
@@ -263,6 +268,7 @@
 				3A1DCD8B1A0DB135005E34E4 /* AppDelegate.m in Sources */,
 				3A1DCD881A0DB135005E34E4 /* main.m in Sources */,
 				3A1DCDAD1A0DB40E005E34E4 /* MainPageViewController.m in Sources */,
+				3ACF10911A0F6DC300266B84 /* MainViewController.m in Sources */,
 				3A9768611A0DE3B3007B777B /* PostTableViewCell.m in Sources */,
 				3A1DCDB71A0DBE21005E34E4 /* TFHpple.m in Sources */,
 				3A1DCDB91A0DBE21005E34E4 /* XPathQuery.m in Sources */,

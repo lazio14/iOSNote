@@ -17,8 +17,13 @@
 @implementation MainPageViewController
 
 static NSString *PostCellIdentifier = @"PostCell";
+
 static NSString *HTMLURL = @"http://makesmethink.com";
 static NSString* postXPath = @"//body//div[@class='post']//p//a";
+
+//static NSString *HTMLURL = @"http://www.qiushibaike.com";
+//static NSString* postXPath = @"//body//div[@class='content']";
+
 
 - (PostTableViewCell *)prototypeCell
 {
