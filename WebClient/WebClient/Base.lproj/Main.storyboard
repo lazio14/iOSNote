@@ -40,7 +40,7 @@
         <!--Main Page View Controller-->
         <scene sceneID="lGH-ys-oWm">
             <objects>
-                <tableViewController id="Nl3-6L-QDW" customClass="MainPageViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TableViewController" id="Nl3-6L-QDW" customClass="MainPageViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="0YB-2J-BIU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

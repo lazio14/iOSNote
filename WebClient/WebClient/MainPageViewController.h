@@ -9,4 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MainPageViewController : UITableViewController
+@property (strong, nonatomic) NSMutableArray *posts;
 @end

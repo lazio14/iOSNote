@@ -22,6 +22,14 @@ static NSString* postXPath = @"//body//div[@class='content']";
 //static NSString *HTMLURL = @"http://makesmethink.com";
 //static NSString* postXPath = @"//body//div[@class='post']//p//a";
 
+- (NSMutableArray *) posts
+{
+    if (!_posts) {
+        _posts = [[NSMutableArray alloc] init];
+    }
+    return _posts;
+}
+
 - (UIActivityIndicatorView*) spinner
 {
     return _spinner;
@@ -66,15 +74,32 @@ static NSString* postXPath = @"//body//div[@class='content']";
     NSInteger len = [elements count];
     for (NSInteger i = 0; i < len; i++) {
         TFHppleElement * element = [elements objectAtIndex:i];
-        NSLog(@"%@\n", [element text]);                       // The text inside the HTML element (the content of the first text node)
+        // NSLog(@"%@\n", [element text]);                       // The text inside the HTML element (the content of the first text node)
         //            [element tagName];                    // "a"
         //            [element attributes];                 // NSDictionary of href, class, id, etc.
         //            [element objectForKey:@"href"];       // Easy access to single attribute
         //            [element firstChildWithTagName:@"b"]; // The first "b" child node
         [self.posts addObject:[element text]];
+        //NSLog(self.posts[i]);
     }
     
     [self.spinner stopAnimating];
+    [self showTable:self.posts];
+}
+
+- (void) showTable:(NSMutableArray *)posts
+{
+    NSLog(@"DDDDDDDD");
+    MainViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TableViewController"];
+    NSLog(@"aaaaaa");
+    controller.posts = self.posts;
+    NSLog(@"BBBB");
+    [self.navigationController pushViewController:controller animated:YES];
+    NSLog(@"ddddd");
+    NSLog(self.posts[1]);
+    NSLog(@"EEEEE");
+
+    
 }
 
 

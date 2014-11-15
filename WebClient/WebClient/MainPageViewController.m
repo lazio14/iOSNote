@@ -10,7 +10,6 @@
 #import "MainPageViewController.h"
 
 @interface MainPageViewController ()
-@property (strong, nonatomic) NSMutableArray *posts;
 @property (nonatomic, strong) PostTableViewCell *prototypeCell; // 往里面填充内容，为了计算占用行数。
 @end
 
@@ -18,12 +17,7 @@
 
 static NSString *PostCellIdentifier = @"PostCell";
 
-static NSString *HTMLURL = @"http://makesmethink.com";
-static NSString* postXPath = @"//body//div[@class='post']//p//a";
-
-//static NSString *HTMLURL = @"http://www.qiushibaike.com";
-//static NSString* postXPath = @"//body//div[@class='content']";
-
+@synthesize posts = _posts;
 
 - (PostTableViewCell *)prototypeCell
 {
@@ -37,58 +31,30 @@ static NSString* postXPath = @"//body//div[@class='post']//p//a";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self startDownloadHTMLFile];
 }
 
-- (NSArray *)posts
+- (NSMutableArray *)posts
 {
+    NSLog(@"222222222");
     if (!_posts) {
         _posts = [[NSMutableArray alloc] init];
     }
     return _posts;
 }
 
+
+- (void)setPosts:(NSMutableArray *)posts
+{
+        NSLog(@"33333333");
+    _posts = posts;
+    NSLog(@"444444");
+    [self.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void)startDownloadHTMLFile {
-    
-    NSURL* htmlURL = [NSURL URLWithString:HTMLURL];
-    NSURLRequest* request = [NSURLRequest requestWithURL:htmlURL];
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
-    NSURLSessionDownloadTask *task = [session downloadTaskWithRequest:request
-                                                    completionHandler:^(NSURL *location, NSURLResponse *response, NSError *error) {
-                                                        if (!error)
-                                                        {
-                                                            [self parseHTMLContent:location];
-                                                            [self.tableView reloadData];
-                                                            
-                                                        }
-                                                    }];
-    [task resume];
-    
-}
-
-- (void) parseHTMLContent:(NSString *)htmlPath
-{
-    NSData  * data      = [NSData dataWithContentsOfFile: htmlPath];
-    TFHpple * doc       = [[TFHpple alloc] initWithHTMLData:data];
-    NSArray * elements  = [doc searchWithXPathQuery:postXPath];
-    
-    [self.posts removeAllObjects];
-    NSInteger len = [elements count];
-    for (NSInteger i = 0; i < len; i++) {
-        TFHppleElement * element = [elements objectAtIndex:i];
-        NSLog(@"%@\n", [element text]);                       // The text inside the HTML element (the content of the first text node)
-        //            [element tagName];                    // "a"
-        //            [element attributes];                 // NSDictionary of href, class, id, etc.
-        //            [element objectForKey:@"href"];       // Easy access to single attribute
-        //            [element firstChildWithTagName:@"b"]; // The first "b" child node
-        [self.posts addObject:[element text]];
-    }
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
